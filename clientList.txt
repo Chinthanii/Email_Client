@@ -1,0 +1,12 @@
+Official: nimal,nimal@gmail.com,ceoe
+Official: nimal,nimal@gmail.com,ceo
+Official: nimal,nimal@gmail.com,ceo2
+Official: nimal,nimal@gmail.com,ceo
+Personal: sunil,sn,sunil@gmail.com,2000/10/10
+Personal: sunil,kk,sunil@gmail.com,2000/10/10
+Office_friend: kamal,kamal@gmail.com,clerk,2000/12/12
+Office_friend: kamal,kamal@gmail.com,clerk,2000/12/12
+Office_friend: kamal,chinthanichandeepa@gmail.com,clerk,2000/08/06
+Personal: sunil,Niki,sunil@gmail.com,2000/10/10
+Office_friend: kamal,kamal@gmail.com,clerk,2000/8/12
+Office_friend: kamal,kamal@gmail.com,clerk,2000/8/14
