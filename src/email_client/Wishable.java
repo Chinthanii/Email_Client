@@ -6,10 +6,9 @@
 package email_client;
 
 
-/**
- *
- * @author Cipla 1
- */
-public interface Wishable {
-    public Email wishOnBirthday();
+interface Wishable {
+ public Email wishOnBirthday();
+ public boolean CheckBirthday(String date);
+ public void getDetails();
+ 
 }

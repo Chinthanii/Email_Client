@@ -6,47 +6,53 @@
 package email_client;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
-/**
- *
- * @author Cipla 1
- */
-public class Serialization {
-    
-   static void Serialize(ArrayList<Email> Emails) throws FileNotFoundException, IOException{
-        FileOutputStream fileStream2 = new FileOutputStream("SentEmail.ser");
+abstract class Serialization {
  
- try (ObjectOutputStream os2 = new ObjectOutputStream(fileStream2)) {
-         os2.writeObject(Emails);
-         os2.close();
-     }
-    }
-    
-    static public ArrayList<Email> deserialize(){
-        
-        ArrayList<Email> Emails;
-        try{
-     FileInputStream fileStream = new FileInputStream("SentEmail.ser");
-     ObjectInputStream os = new ObjectInputStream(fileStream);
-     
-     Object objArray= os.readObject();
-     Emails = (ArrayList<Email>)objArray;
-     return Emails;
-     }
-     
-     catch(IOException | ClassNotFoundException e){
-         Emails = new ArrayList<>();
-     }
-        return Emails;
-        
-    }
+ static void Serialize(Object obj , String FileName) {
+ 
+ try{
+ FileOutputStream fileStream2 = new FileOutputStream(FileName);
+ try (ObjectOutputStream os = new ObjectOutputStream(fileStream2)) {
+ os.writeObject(obj);
+ os.close();
+ }
+ }
+ catch(IOException e){
+ 
+ }
+ }
+static public Object deserialize(String FileName){
+ 
+ 
+ try{
+ FileInputStream fileStream = new FileInputStream(FileName);
+ try (ObjectInputStream os = new ObjectInputStream(fileStream)) {
+ Object obj = os.readObject();
+ return obj;
+ }
+ 
+ } 
+ catch(IOException|ClassNotFoundException e){
+ }
+ return null;
+ 
+ }
+ 
+ static public ArrayList<Email> deserializeEmail(){
+ ArrayList<Email> SentEmails ;
+ Object obj = Serialization.deserialize("SentEmail.ser");
+ if(obj == null){
+ SentEmails =new ArrayList<>();
+ }
+ else{
+ SentEmails = (ArrayList<Email>) obj;
+ }
+ 
+ return SentEmails;
+ }
 }
-
-    
-

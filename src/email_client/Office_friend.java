@@ -1,48 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package email_client;
-
-import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-/**
- *
- * @author Cipla 1
- */
-class Personal_recipient extends Recipient implements Wishable {
+class Office_friend extends Official_recipient implements Wishable{
  private Date birthday;
- private String nickName;
  
- 
- public Personal_recipient(String type,String name, String nickName, String email
-, Date birthday ){
- super(type,name , email);
- this.birthday = birthday;
- this.nickName = nickName;
+ public Office_friend(String type , String name , String email, String 
+designation , Date birthday){
+ super(type , name, email, designation);
+ this.birthday=birthday;
  }
  
- public void setBirthday(Date birthday)
- {
+ public void setBirthday(Date birthday){
  this.birthday = birthday;
  }
- 
  public Date getBirthday(){
  return birthday;
- }
- 
- public void setNickName(String nickName)
- {
- this.nickName = nickName;
- }
- 
- public String getNickName(){
- return nickName;
  }
  
  /**
@@ -63,14 +36,15 @@ class Personal_recipient extends Recipient implements Wishable {
  int month2 = cal2.get(Calendar.MONTH);
  int date2 = cal2.get(Calendar.DAY_OF_MONTH);
  if(month ==month2 && date == date2){
- String Eaddress = this.getEmail();
- String Body = "hugs and love on your birthday "+this.getName();
+ String EAddress = this.getEmail();
+ String Body = "Wish you a Happy Birthday "+this.getName();
  String Subject = "Birthday Greeting ";
- Email em = new Email(Eaddress, Subject, Body);
+ Email em = new Email(EAddress, Subject, Body);
  em.sendMail();
  return em;
  }
  return null;
+ 
  }
  
  @Override
